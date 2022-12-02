@@ -14,4 +14,13 @@ describe("ship functions", () => {
     testShip.hit();
     expect(testShip.timesHit).toEqual(1);
   });
+  test("check to see if ship sinks", () => {
+    testShip.hit()
+    testShip.hit()    
+    testShip.hit()    
+    testShip.hit()    
+    testShip.hit()    
+    expect(testShip.timesHit).toEqual(5)
+    expect(testShip.isSunk()).toEqual(true)
+  })
 });
