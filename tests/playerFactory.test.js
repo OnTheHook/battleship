@@ -47,6 +47,6 @@ describe("Player", () => {
 
   test("player attacking computer", () => {
     comp.gameboard.receiveAttack(0,9)
-    expect(compShipOne.timesHit()).toEqual(1)
+    expect(compShipOne.timesHit).toEqual(1)
   });
 });

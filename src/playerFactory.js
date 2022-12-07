@@ -1,4 +1,7 @@
-function Player(gameboard, computer) {
+import Gameboard from "../src/gameboardFactory";
+import Ship from "../src/shipFactory";
+
+function Player(gameboard) {
   const findEmptySpots = function (board) {
     let arr = [];
     for (let i = 0; i < 10; i++) {
@@ -12,10 +15,12 @@ function Player(gameboard, computer) {
     return arr;
   };
   const randomPlay = function (board) {
-    
+    let possibleSpots = findEmptySpots(board);
+    let spot = possibleSpots[Math.floor(Math.random() * possibleSpots.length)];
+    board.receiveAttack(...spot);
   };
 
-  return { gameboard };
+  return { gameboard, randomPlay };
 }
 
 export default Player;

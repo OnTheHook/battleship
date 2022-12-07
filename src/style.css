@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 900px;
+    margin: auto;
+}
+
+#computer-board, #player-board {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10, 90px);
+}
+
+#computer-board>*, #player-board>* {
+    display: grid;
+    grid-template-columns: repeat(10, 90px);
+}
+
+#computer-board>*>* {
+    border: 1px solid black;
+    background-color: lightseagreen;
+}
+
+.hit {
+    background-color: red;
+}
+
+.miss {
+    background-color: white;
+}

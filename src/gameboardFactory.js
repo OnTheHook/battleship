@@ -94,7 +94,6 @@ function Gameboard() {
     if (this.board[x][y] != null) {
       this.hitMiss[x][y] = true;
       this.board[x][y].hit();
-      return true;
     } else {
       this.hitMiss[x][y] = false;
     }
