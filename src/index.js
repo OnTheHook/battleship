@@ -29,16 +29,18 @@ compShipTwo = Ship(4);
 compShipThree = Ship(3);
 compShipFour = Ship(3);
 compShipFive = Ship(2);
-playerBoard.placeShip(playerShipOne, 0, 0, "up");
-playerBoard.placeShip(playerShipTwo, 1, 0, "up");
-playerBoard.placeShip(playerShipThree, 2, 0, "up");
-playerBoard.placeShip(playerShipFour, 3, 0, "up");
-playerBoard.placeShip(playerShipFive, 4, 0, "up");
-compBoard.placeShip(compShipOne, 0, 9, "down");
-compBoard.placeShip(compShipTwo, 1, 9, "down");
-compBoard.placeShip(compShipThree, 2, 9, "down");
-compBoard.placeShip(compShipFour, 3, 9, "down");
-compBoard.placeShip(compShipFive, 4, 9, "down");
+
+// playerBoard.placeShip(playerShipOne, 0, 0, "up");
+// playerBoard.placeShip(playerShipTwo, 1, 0, "up");
+// playerBoard.placeShip(playerShipThree, 2, 0, "up");
+// playerBoard.placeShip(playerShipFour, 3, 0, "up");
+// playerBoard.placeShip(playerShipFive, 4, 0, "up");
+
+compBoard.placeShipRandom(compShipOne);
+compBoard.placeShipRandom(compShipTwo);
+compBoard.placeShipRandom(compShipThree);
+compBoard.placeShipRandom(compShipFour);
+compBoard.placeShipRandom(compShipFive);
 comp = Player(compBoard);
 playerOne = Player(playerBoard);
 
@@ -64,11 +66,29 @@ function updateDisplay() {
   }
 }
 
-let playerTurn = true;
-let gameOn = true;
+const placeButton = document.getElementById("place");
+let playerShipArr = [
+  playerShipOne,
+  playerShipTwo,
+  playerShipThree,
+  playerShipFour,
+  playerShipFive,
+];
 
+let current = 0
+let playerTurn = true;
+let gameOn = false;
+let allShipsPlaced = false;
+let startX, startY, endX, endY;
+let direction= "down"
 let computerArr = [...Array(10)].map((e) => Array(10).fill(null));
 let playerArr = [...Array(10)].map((e) => Array(10).fill(null));
+
+placeButton.addEventListener("click", () => {
+  
+  playerBoard.placeShip(playerShipArr[current], startX, startY, direction)
+  current += 1
+});
 
 for (let i = 0; i < 10; i++) {
   for (let k = 0; k < 10; k++) {
@@ -92,6 +112,29 @@ for (let i = 0; i < 10; i++) {
           gameOn = !playerBoard.allShipsSunk() && !compBoard.allShipsSunk();
           playerTurn = true;
         }
+      }
+    });
+
+    playerArr[k][i].addEventListener("click", () => {
+      if (!allShipsPlaced) {
+        startX = k;
+        startY = i;
+        endX = k;
+        endY = startY - playerShipOne.length + 1;
+        if (startX > endX) {
+          [startX, endX] = [endX, startX];
+        }
+
+        if (startY > endY) {
+          [startY, endY] = [endY, startY];
+        }
+        for (let p = startX; p <= endX; p++) {
+          for (let j = startY; j <= endY; j++) {
+            playerArr[p][j].classList.add("ship");
+          }
+        }
+
+        playerBoard.placeShip(playerShipOne, startX, startY, "down");
       }
     });
   }
