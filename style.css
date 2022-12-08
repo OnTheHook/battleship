@@ -33,3 +33,7 @@
 #computer-board>*>*.miss, #player-board>*>*.miss {
     background-color: white;
 }
+
+#player-board>*>*.ship {
+    background-color: grey;
+}
