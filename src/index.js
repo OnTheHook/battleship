@@ -30,20 +30,15 @@ compShipThree = Ship(3);
 compShipFour = Ship(3);
 compShipFive = Ship(2);
 
-// playerBoard.placeShip(playerShipOne, 0, 0, "up");
-// playerBoard.placeShip(playerShipTwo, 1, 0, "up");
-// playerBoard.placeShip(playerShipThree, 2, 0, "up");
-// playerBoard.placeShip(playerShipFour, 3, 0, "up");
-// playerBoard.placeShip(playerShipFive, 4, 0, "up");
-
 compBoard.placeShipRandom(compShipOne);
 compBoard.placeShipRandom(compShipTwo);
 compBoard.placeShipRandom(compShipThree);
 compBoard.placeShipRandom(compShipFour);
 compBoard.placeShipRandom(compShipFive);
 comp = Player(compBoard);
-playerOne = Player(playerBoard);
 
+console.log(compBoard.board);
+console.log(playerBoard.board);
 function updateDisplay() {
   for (let i = 0; i < 10; i++) {
     for (let k = 0; k < 10; k++) {
@@ -62,6 +57,59 @@ function updateDisplay() {
       if (playerBoard.hitMiss[i][k] === false) {
         playerArr[i][k].classList.add("miss");
       }
+
+      if (!allShipsPlaced) {
+        playerArr[i][k].className = "";
+        if (playerBoard.board[i][k] != null) {
+          console.log("SHIP DISPLAYED");
+          playerArr[i][k].classList.add("ship");
+        }
+      }
+    }
+  }
+}
+
+function setShip() {
+  if (!allShipsPlaced) {
+    let disStartX = startX;
+    let disStartY = startY;
+
+    let disEndX, disEndY;
+    if (direction === "up") {
+      disEndY = disStartY + playerShipArr[current].length - 1;
+      disEndX = disStartX;
+    } else if (direction === "down") {
+      disEndY = disStartY - playerShipArr[current].length + 1;
+      disEndX = disStartX;
+    } else if (direction === "right") {
+      disEndY = disStartY;
+      disEndX = disStartX + playerShipArr[current].length - 1;
+    } else if (direction === "left") {
+      disEndY = disStartY;
+      disEndX = disStartX - playerShipArr[current].length + 1;
+    }
+    if (disStartX > disEndX) {
+      [disStartX, disEndX] = [disEndX, disStartX];
+    }
+
+    if (disStartY > disEndY) {
+      [disStartY, disEndY] = [disEndY, disStartY];
+    }
+    let legalPlaces = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    if (
+      !legalPlaces.includes(disStartX) ||
+      !legalPlaces.includes(disStartY) ||
+      !legalPlaces.includes(disEndX) ||
+      !legalPlaces.includes(disEndY)
+    ) {
+      return;
+    }
+
+    updateDisplay();
+    for (let p = disStartX; p <= disEndX; p++) {
+      for (let j = disStartY; j <= disEndY; j++) {
+        playerArr[p][j].classList.add("ship");
+      }
     }
   }
 }
@@ -75,19 +123,81 @@ let playerShipArr = [
   playerShipFive,
 ];
 
-let current = 0
+let current = 0;
 let playerTurn = true;
 let gameOn = false;
 let allShipsPlaced = false;
-let startX, startY, endX, endY;
-let direction= "down"
+let startX = null;
+let startY = null;
+let direction = "right";
 let computerArr = [...Array(10)].map((e) => Array(10).fill(null));
 let playerArr = [...Array(10)].map((e) => Array(10).fill(null));
 
 placeButton.addEventListener("click", () => {
-  
-  playerBoard.placeShip(playerShipArr[current], startX, startY, direction)
-  current += 1
+  console.log("Start X: " + startX);
+  console.log("Start Y: " + startY);
+  console.log("Current: " + current);
+  console.log("Current ship: " + playerShipArr[current]);
+  console.log("Direction: " + direction);
+  if (
+    allShipsPlaced === false &&
+    startX !== null &&
+    playerBoard.isPlacementPossible(
+      playerShipArr[current],
+      startX,
+      startY,
+      direction
+    ) === true
+  ) {
+    playerBoard.placeShip(playerShipArr[current], startX, startY, direction);
+    updateDisplay();
+    console.log("PLACED");
+    console.log(playerBoard.board);
+    current += 1;
+  }
+  if (current === 5) {
+    allShipsPlaced = true;
+    gameOn = true;
+    playerOne = Player(playerBoard);
+  }
+});
+
+const down = document.getElementById("down");
+const up = document.getElementById("up");
+const left = document.getElementById("left");
+const right = document.getElementById("right");
+
+down.addEventListener("click", () => {
+  if (!allShipsPlaced) {
+    direction = "down";
+    if (startX) {
+      setShip();
+    }
+  }
+});
+up.addEventListener("click", () => {
+  if (!allShipsPlaced) {
+    direction = "up";
+    if (startX) {
+      setShip();
+    }
+  }
+});
+left.addEventListener("click", () => {
+  if (!allShipsPlaced) {
+    direction = "left";
+    if (startX) {
+      setShip();
+    }
+  }
+});
+right.addEventListener("click", () => {
+  if (!allShipsPlaced) {
+    direction = "right";
+    if (startX) {
+      setShip();
+    }
+  }
 });
 
 for (let i = 0; i < 10; i++) {
@@ -116,26 +226,11 @@ for (let i = 0; i < 10; i++) {
     });
 
     playerArr[k][i].addEventListener("click", () => {
-      if (!allShipsPlaced) {
-        startX = k;
-        startY = i;
-        endX = k;
-        endY = startY - playerShipOne.length + 1;
-        if (startX > endX) {
-          [startX, endX] = [endX, startX];
-        }
-
-        if (startY > endY) {
-          [startY, endY] = [endY, startY];
-        }
-        for (let p = startX; p <= endX; p++) {
-          for (let j = startY; j <= endY; j++) {
-            playerArr[p][j].classList.add("ship");
-          }
-        }
-
-        playerBoard.placeShip(playerShipOne, startX, startY, "down");
-      }
+      startX = k;
+      startY = i;
+      console.log("Start X click " + startX);
+      console.log("Start Y click " + startY);
+      setShip();
     });
   }
 }

@@ -49,8 +49,8 @@ function Gameboard() {
   };
 
   const placeShip = function (ship, startX, startY, direction) {
-    let legalPlaces = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    if (!legalPlaces.includes(startX) || !legalPlaces.includes(startY)) {
+
+    if (this.isPlacementPossible(ship, startX, startY, direction) === false) {
       return;
     }
 
@@ -77,15 +77,15 @@ function Gameboard() {
       [startY, endY] = [endY, startY];
     }
 
-    if (this.isPlacementPossible(ship, startX, startY, direction) === false) {
-      return;
-    }
+    
 
     for (let x = startX; x <= endX; x++) {
       for (let y = startY; y <= endY; y++) {
         this.board[x][y] = ship;
       }
     }
+
+    
   };
 
   const receiveAttack = function (x, y) {
@@ -112,7 +112,7 @@ function Gameboard() {
 
   const placeShipRandom = function (ship) {
     let legalPlaces = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    let directions = ["down", "left", "up",  "right"];
+    let directions = ["down", "left", "up", "right"];
     let randomX = legalPlaces[Math.floor(Math.random() * legalPlaces.length)];
     let randomY = legalPlaces[Math.floor(Math.random() * legalPlaces.length)];
     let randomDirection =
@@ -124,9 +124,11 @@ function Gameboard() {
     ) {
       randomX = legalPlaces[Math.floor(Math.random() * legalPlaces.length)];
       randomY = legalPlaces[Math.floor(Math.random() * legalPlaces.length)];
-      randomDirection = directions[Math.floor(Math.random() * directions.length)];
+      randomDirection =
+        directions[Math.floor(Math.random() * directions.length)];
     }
     this.placeShip(ship, randomX, randomY, randomDirection);
+
   };
 
   return {
@@ -136,7 +138,7 @@ function Gameboard() {
     receiveAttack,
     allShipsSunk,
     isPlacementPossible,
-    placeShipRandom
+    placeShipRandom,
   };
 }
 
