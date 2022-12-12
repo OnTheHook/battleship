@@ -26,6 +26,10 @@
     background-color: lightseagreen;
 }
 
+#player-board>*>*.ship {
+    background-color: grey;
+}
+
 #computer-board>*>*.hit, #player-board>*>*.hit {
     background-color: red;
 }
@@ -34,6 +38,3 @@
     background-color: white;
 }
 
-#player-board>*>*.ship {
-    background-color: grey;
-}
