@@ -10,261 +10,274 @@
 </head>
 
 <body>
+    <div class="title"><h1>Battleship</h1></div>
     <div class="container">
-        <div id="controls">
-            <button id="up">UP</button>
-            <button id="down">DOWN</button>
-            <button id="left">LEFT</button>
-            <button id="right">RIGHT</button>
-            <button id="place">PLACE</button>
+        
+        <div class="board">
+            <div id="player-board">
+                <div class="row9">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row8">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row7">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row6">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row5">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row4">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row3">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row2">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row1">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row0">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+            </div>
+            <h3>Player Board</h3>
+            <div id="controls">
+                <button id="up">UP</button>
+                <button id="down">DOWN</button>
+                <button id="left">LEFT</button>
+                <button id="right">RIGHT</button>
+                <button id="place">PLACE</button>
+            </div>
         </div>
-        <div id="player-board">
-            <div class="row9">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
+       
+        <div class="board">
+            <div id="computer-board">
+                <div class="row9">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row8">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row7">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row6">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row5">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row4">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row3">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row2">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row1">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
+                <div class="row0">
+                    <div class="column0"></div>
+                    <div class="column1"></div>
+                    <div class="column2"></div>
+                    <div class="column3"></div>
+                    <div class="column4"></div>
+                    <div class="column5"></div>
+                    <div class="column6"></div>
+                    <div class="column7"></div>
+                    <div class="column8"></div>
+                    <div class="column9"></div>
+                </div>
             </div>
-            <div class="row8">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row7">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row6">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row5">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row4">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row3">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row2">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row1">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row0">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-        </div>
-        <div id="computer-board">
-            <div class="row9">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row8">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row7">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row6">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row5">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row4">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row3">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row2">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row1">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
-            <div class="row0">
-                <div class="column0"></div>
-                <div class="column1"></div>
-                <div class="column2"></div>
-                <div class="column3"></div>
-                <div class="column4"></div>
-                <div class="column5"></div>
-                <div class="column6"></div>
-                <div class="column7"></div>
-                <div class="column8"></div>
-                <div class="column9"></div>
-            </div>
+            <h3>Computer Board</h3>
         </div>
   
     </div>
-
+    <div class="instructions">
+        <h4>Instructions</h4>
+        <p>You have five ships to place on the player board. The first ship to be placed will take up five spaces. The next ship will take up four spaces. The next two ships will take up three spaces. And the last ship will take up two spaces. The buttons up down left and right control the direction of the ship to be placed. By clicking a spot on the player board a preview of where the ship will be placed will be shown on the grid. Click the place button to set the ship in the selected location. Once all five ships have been placed the game will begin. The player will click a spot on the computer board. If the spot turns white that represents a miss. If the spot turns red that represents a hit. The computer also has five ships that correspond to yours placed randomly on its board. The player and computer will alternate turns.Whoever sinks the five ships first wins. A ship is considered sunk when all of its spots turn red.</p>
+    </div>
+    
 
     <script src="./app.js"></script>
 </body>
