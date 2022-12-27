@@ -43,9 +43,23 @@ function Player(gameboard) {
 
   const randomPlay = function (board) {
     let possibleSpots = findEmptySpots(board);
-    let hits = findHitSpots(board)
-    let adjacent = findAdjacentOfHit(hits)
-    let spot = possibleSpots[Math.floor(Math.random() * possibleSpots.length)];
+    let hits = findHitSpots(board);
+    let adjacent = findAdjacentOfHit(hits);
+    let spot;
+
+    let adjacentPossible = adjacent
+      .map(JSON.stringify)
+      .filter((ele) => {
+        return possibleSpots.map(JSON.stringify).includes(ele);
+      })
+      .map(JSON.parse);
+      
+    if (adjacentPossible.length > 0) {
+      spot =
+        adjacentPossible[Math.floor(Math.random() * adjacentPossible.length)];
+    } else {
+      spot = possibleSpots[Math.floor(Math.random() * possibleSpots.length)];
+    }
     board.receiveAttack(...spot);
   };
 
